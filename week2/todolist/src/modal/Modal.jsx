@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Modal.css";
 
 const Modal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,9 +16,9 @@ const Modal = () => {
       <button onClick={toggleModal}>버튼 열기</button>
       {isOpen && (
         <div>
-          <div style={overlayStyle} onClick={toggleModal}></div>
-          <div style={modalContainerStyle}>
-            <div style={modalStyle}>
+          <div id="overlay" onClick={toggleModal}></div>
+          <div id="modalBox">
+            <div id="innerModal">
               <h2>안녕하세요</h2>
               <p>모달 내용은 어쩌고 저쩌고..</p>
               <button onClick={toggleModal}>닫기</button>
@@ -27,34 +28,6 @@ const Modal = () => {
       )}
     </div>
   );
-};
-
-const overlayStyle = {
-  position: "fixed",
-  top: 0,
-  left: 0,
-  width: "100%",
-  height: "100%",
-  backgroundColor: "rgba(0, 0, 0, 0.5)",
-  zIndex: 999,
-};
-
-const modalContainerStyle = {
-  position: "fixed",
-  top: 0,
-  left: 0,
-  width: "100%",
-  height: "100%",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  zIndex: 1000,
-};
-
-const modalStyle = {
-  backgroundColor: "#fff",
-  padding: "20px",
-  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.5)",
 };
 
 export default Modal;
