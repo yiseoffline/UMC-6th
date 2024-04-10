@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Todo from "./todo/Todo";
 import Counter from "./counter/Counter";
+import Modal from "./modal/Modal";
 
 const Router = () => {
   return (
@@ -10,6 +11,7 @@ const Router = () => {
       <Routes>
         <Route path="/todo" element={<Todo />} />
         <Route path="/counter" element={<Counter />} />
+        <Route path="/modal" element={<Modal />} />
       </Routes>
     </BrowserRouter>
   );
