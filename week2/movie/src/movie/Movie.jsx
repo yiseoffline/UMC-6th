@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { movieApi } from "../movieApi.js"; // movieApi.js 파일에서 movieApi 객체를 가져옴
+import React, { useState } from "react";
+import { movieApi } from "../movieApi.js";
 
 const Movie = () => {
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    setMovies(movieApi.results); // movieApi 객체에서 results 배열을 직접 사용하여 영화 데이터 설정
-  }, []);
-
-  console.log(movies);
+  const [movies, setMovies] = useState(movieApi.results);
+  const [hoveredMovieId, setHoveredMovieId] = useState(null);
 
   return (
     <div
@@ -26,19 +21,62 @@ const Movie = () => {
       {movies.map((movie) => (
         <div
           key={movie.id}
+          onMouseEnter={() => setHoveredMovieId(movie.id)}
+          onMouseLeave={() => setHoveredMovieId(null)}
           style={{
             backgroundColor: "#383b66",
             margin: "10px",
             padding: "10px",
             width: "200px",
+            position: "relative",
           }}
         >
           <img
             src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
             alt={movie.title}
-            style={{ width: "100%", height: "auto" }}
+            style={{
+              width: "100%",
+              height: "auto",
+              transition: "opacity 0.3s ease",
+              opacity: hoveredMovieId === movie.id ? 0.5 : 1,
+            }}
           />
-          <h2 style={{ color: "white" }}>{movie.title}</h2>
+          {hoveredMovieId === movie.id && (
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "white",
+                padding: "10px",
+                fontSize: "14px",
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
+              }}
+            >
+              {movie.original_title}
+              <br />
+              <br />
+              <br />
+              {movie.overview}
+            </div>
+          )}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              color: "white",
+            }}
+          >
+            <h4>{movie.title}</h4>
+            <p style={{ paddingLeft: 20, paddingTop: 10 }}>
+              {movie.vote_average}
+            </p>
+          </div>
         </div>
       ))}
     </div>
