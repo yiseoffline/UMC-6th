@@ -11,12 +11,34 @@ const Movie = () => {
   console.log(movies);
 
   return (
-    <div>
+    <div
+      id="Movie"
+      style={{
+        backgroundColor: "#232548",
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+      }}
+    >
       {movies.map((movie) => (
-        <div key={movie.id}>
-          <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} />
-          <h2>{movie.title}</h2>
-          <p>{movie.overview}</p>
+        <div
+          key={movie.id}
+          style={{
+            backgroundColor: "#383b66",
+            margin: "10px",
+            padding: "10px",
+            width: "200px",
+          }}
+        >
+          <img
+            src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
+            alt={movie.title}
+            style={{ width: "100%", height: "auto" }}
+          />
+          <h2 style={{ color: "white" }}>{movie.title}</h2>
         </div>
       ))}
     </div>
