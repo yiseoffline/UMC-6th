@@ -5,10 +5,12 @@ const Counter = () => {
 
   const plus = () => {
     setCounter((counter) => counter + 1);
+    console.log("increase가 클릭됨");
   };
 
   const minus = () => {
     setCounter((counter) => counter - 1);
+    console.log("decrease가 클릭됨");
   };
 
   return (
