@@ -9,7 +9,7 @@ const Navbar = () => {
         UMC Movie
       </Link>
       <div className="menuContainer">
-        <Link className="menu" to={"/login"}>
+        <Link className="menu" to={"/"}>
           회원가입
         </Link>
         <Link className="menu" to={"/popular"}>
@@ -18,7 +18,7 @@ const Navbar = () => {
         <Link className="menu" to={"/nowPlaying"}>
           Now Playing
         </Link>
-        <Link className="menu" to={"/ranking"}>
+        <Link className="menu" to={"/topRated"}>
           Top Rated
         </Link>
         <Link className="menu" to={"/upcoming"}>

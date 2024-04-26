@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { nowPlayingApi } from "./nowPlayingApi";
 
 const NowPlaying = () => {
-  const [nowPlayingMovies, setnowPlayingMovies] = useState(
+  const [nowPlayingMovies, setNowPlayingMovies] = useState(
     nowPlayingApi.results
   );
   const [hoveredMovieId, setHoveredMovieId] = useState(null);

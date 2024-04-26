@@ -7,6 +7,8 @@ import Movie from "./movie/Movie";
 import Footer from "./footer/Footer";
 import Popular from "./popular/PoPular";
 import NowPlaying from "./nowPlaying/nowPlaying";
+import TopRated from "./topRated/topRated";
+import UpComing from "./upcoming/upComing";
 
 const Router = () => {
   return (
@@ -19,6 +21,8 @@ const Router = () => {
           <Route path="/movie" element={<Movie />} />
           <Route path="/popular" element={<Popular />} />
           <Route path="/nowPlaying" element={<NowPlaying />} />
+          <Route path="/topRated" element={<TopRated />} />
+          <Route path="/upcoming" element={<UpComing />} />
         </Routes>
         <Footer />
       </div>
