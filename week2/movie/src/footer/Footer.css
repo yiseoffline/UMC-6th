@@ -1,13 +1,18 @@
 .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0; /* 왼쪽부터 시작 */
+    right: 0; /* 오른쪽까지 */
     background-color: #181b37;
     padding: 15px 0px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between; /* 좌우 여백 동일하게 분배 */
+    align-items: center; /* 수직 정렬 */
   }
   
   .footerLink {
     color: white;
-    margin-right: 10px;
+    margin: 0 10px; /* 좌우 마진 동일하게 */
     text-decoration: none;
   }
   
