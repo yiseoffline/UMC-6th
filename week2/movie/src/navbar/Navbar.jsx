@@ -15,7 +15,7 @@ const Navbar = () => {
         <Link className="menu" to={"/popular"}>
           Popular
         </Link>
-        <Link className="menu" to={"/now"}>
+        <Link className="menu" to={"/nowPlaying"}>
           Now Playing
         </Link>
         <Link className="menu" to={"/ranking"}>

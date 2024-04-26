@@ -5,6 +5,8 @@ import Main from "./main/Main";
 import Login from "./login/Login";
 import Movie from "./movie/Movie";
 import Footer from "./footer/Footer";
+import Popular from "./popular/PoPular";
+import NowPlaying from "./nowPlaying/nowPlaying";
 
 const Router = () => {
   return (
@@ -12,9 +14,11 @@ const Router = () => {
       <div>
         <Nav />
         <Routes>
-          <Route path="/main" element={<Main />} />
+          <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Movie />} />
+          <Route path="/movie" element={<Movie />} />
+          <Route path="/popular" element={<Popular />} />
+          <Route path="/nowPlaying" element={<NowPlaying />} />
         </Routes>
         <Footer />
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { movieApi } from "../movieApi.js";
+import { movieApi } from "./movieApi.js";
 
 const Movie = () => {
   const [movies, setMovies] = useState(movieApi.results);
