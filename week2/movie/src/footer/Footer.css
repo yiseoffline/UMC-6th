@@ -1,0 +1,13 @@
+.footer {
+    background-color: #181b37;
+    padding: 15px 0px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .footerLink {
+    color: white;
+    margin-right: 10px;
+    text-decoration: none;
+  }
+  
