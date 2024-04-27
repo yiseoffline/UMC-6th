@@ -9,7 +9,6 @@ import Popular from "./popular/PoPular";
 import NowPlaying from "./nowPlaying/nowPlaying";
 import TopRated from "./topRated/topRated";
 import UpComing from "./upcoming/upComing";
-import Loading from "./loading/Loading";
 
 const Router = () => {
   return (
@@ -17,7 +16,6 @@ const Router = () => {
       <div>
         <Nav />
         <Routes>
-          <Route path="/loading" element={<Loading />} />
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />
           <Route path="/movie" element={<Movie />} />
