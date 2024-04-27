@@ -1,9 +1,21 @@
-import React, { useState } from "react";
-import { topRatedApi } from "./topRatedApi";
+import React, { useEffect, useState } from "react";
 
 const TopRated = () => {
-  const [topRatedMovies, setTopRatedMovies] = useState(topRatedApi.results);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [hoveredMovieId, setHoveredMovieId] = useState(null);
+
+  useEffect(() => {
+    const fetchTopRated = async () => {
+      const response = await fetch(
+        "https://api.themoviedb.org/3/movie/top_rated?api_key=931f0d63863a888a213f36475d977afb&language=en-US&page=1"
+      );
+
+      const data = await response.json();
+      setTopRatedMovies(data.results);
+    };
+
+    fetchTopRated();
+  }, []);
 
   return (
     <div id="Movie">

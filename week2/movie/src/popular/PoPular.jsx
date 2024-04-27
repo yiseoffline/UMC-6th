@@ -1,10 +1,22 @@
-import React, { useState } from "react";
-import { popularApi } from "./popularApi";
+import React, { useState, useEffect } from "react";
 import "./Popular.css";
 
 const Popular = () => {
-  const [popularMovies, setPopularMovies] = useState(popularApi.results);
+  const [popularMovies, setPopularMovies] = useState([]);
   const [hoveredMovieId, setHoveredMovieId] = useState(null);
+
+  useEffect(() => {
+    const fetchPopularMovies = async () => {
+      const response = await fetch(
+        "https://api.themoviedb.org/3/movie/popular?api_key=931f0d63863a888a213f36475d977afb&language=en-US&page=1"
+      );
+
+      const data = await response.json();
+      setPopularMovies(data.results);
+    };
+
+    fetchPopularMovies();
+  }, []);
 
   return (
     <div id="Movie">

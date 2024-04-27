@@ -1,11 +1,20 @@
-import React, { useState } from "react";
-import { nowPlayingApi } from "./nowPlayingApi";
+import React, { useEffect, useState } from "react";
 
 const NowPlaying = () => {
-  const [nowPlayingMovies, setNowPlayingMovies] = useState(
-    nowPlayingApi.results
-  );
+  const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
   const [hoveredMovieId, setHoveredMovieId] = useState(null);
+
+  useEffect(() => {
+    const fetchNowPlayingMovies = async () => {
+      const response = await fetch(
+        "https://api.themoviedb.org/3/movie/now_playing?api_key=931f0d63863a888a213f36475d977afb&language=en-US&page=1"
+      );
+
+      const data = await response.json();
+      setNowPlayingMovies(data.results);
+    };
+    fetchNowPlayingMovies();
+  }, []);
 
   return (
     <div id="Movie">
