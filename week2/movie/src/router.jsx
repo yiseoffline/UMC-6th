@@ -9,6 +9,7 @@ import Popular from "./popular/PoPular";
 import NowPlaying from "./nowPlaying/nowPlaying";
 import TopRated from "./topRated/topRated";
 import UpComing from "./upcoming/upComing";
+import NotFound from "./notFound/notFound";
 
 const Router = () => {
   return (
@@ -23,6 +24,7 @@ const Router = () => {
           <Route path="/nowPlaying" element={<NowPlaying />} />
           <Route path="/topRated" element={<TopRated />} />
           <Route path="/upcoming" element={<UpComing />} />
+          <Route path="/error" element={<NotFound />} />
         </Routes>
         <Footer />
       </div>
