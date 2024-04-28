@@ -18,7 +18,7 @@ const Router = () => {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/movie" element={<Movie />} />
+          <Route path="/movie/:movieId" element={<Movie />} />
           <Route path="/popular" element={<Popular />} />
           <Route path="/nowPlaying" element={<NowPlaying />} />
           <Route path="/topRated" element={<TopRated />} />
