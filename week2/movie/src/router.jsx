@@ -24,7 +24,7 @@ const Router = () => {
           <Route path="/nowPlaying" element={<NowPlaying />} />
           <Route path="/topRated" element={<TopRated />} />
           <Route path="/upcoming" element={<UpComing />} />
-          <Route path="/error" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </div>

@@ -6,3 +6,11 @@
     flex-direction: column;
     height: 90vh;
 }
+
+.link {
+    font-size: large;
+    font-weight: bold;
+    text-decoration: none;
+    color: inherit; /* 링크의 색상을 상위 요소에서 상속받음 */
+  }
+  
