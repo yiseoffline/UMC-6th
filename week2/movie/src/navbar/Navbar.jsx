@@ -4,9 +4,11 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(null);
+  const [login, setLogin] = useState(false);
 
   const handleClick = (menu) => {
     setActiveMenu(menu);
+    setLogin(!login);
   };
 
   return (
@@ -16,12 +18,12 @@ const Navbar = () => {
       </Link>
       <div className="menuContainer">
         <Link
+          style={{ color: "yellow" }}
           onClick={() => handleClick("회원가입")}
-          style={{ color: activeMenu === "회원가입" ? "yellow" : "white" }}
           className="menu"
           to={"/"}
         >
-          회원가입
+          {login ? "로그아웃" : "로그인"}
         </Link>
         <Link
           onClick={() => handleClick("Popular")}
