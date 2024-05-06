@@ -4,6 +4,7 @@ import "./Main.css";
 const Main = () => {
   const [searchWord, setSearchWord] = useState("");
   const [searchMovie, setSearchMovie] = useState([]);
+  const [hoveredMovieId, setHoveredMovieId] = useState(null);
   const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
@@ -45,11 +46,33 @@ const Main = () => {
           style={{ overflowY: "auto", maxHeight: "300px" }}
         >
           {isSearching && <div>Loading...</div>}
-          {!isSearching && searchMovie.length === 0 && (
-            <div>검색 결과가 없습니다.</div>
-          )}
           {searchMovie.map((movie) => (
-            <div key={movie.id}>{movie.title}</div>
+            <div
+              key={movie.id}
+              onMouseEnter={() => setHoveredMovieId(movie.id)}
+              onMouseLeave={() => setHoveredMovieId(null)}
+              id="imagebox"
+            >
+              <img
+                src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
+                alt={movie.title}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  transition: "opacity 0.3s ease",
+                  opacity: hoveredMovieId === movie.id ? 0.5 : 1,
+                }}
+              />
+              {hoveredMovieId === movie.id && (
+                <div id="hover">
+                  {movie.original_title}
+                  <br />
+                  <br />
+                  <br />
+                  {movie.overview}
+                </div>
+              )}
+            </div>
           ))}
         </div>
       </div>
