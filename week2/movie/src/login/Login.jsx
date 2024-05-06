@@ -101,6 +101,11 @@ const Login = () => {
         placeholder="비밀번호 확인"
       />
       {pwChkErrorMsg && <div className="message">{pwChkErrorMsg}</div>}
+      <button className="btn">제출하기</button>
+      <div className="question">
+        <div style={{ marginRight: 20 }}>이미 아이디가 있으신가요?</div>
+        <div style={{ fontWeight: "bold" }}>로그인 페이지로 이동하기</div>
+      </div>
     </div>
   );
 };
