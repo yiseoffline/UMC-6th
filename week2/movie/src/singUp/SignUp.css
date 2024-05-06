@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 가로 가운데 정렬 */
+    align-items: center; /* 세로 가운데 정렬 */
+}
+
+h2 {
+    margin-top: 30px;
+    color: white;
+}
+
+.message{
+    color: red;
+    margin-top: 10px;
+    font-size: small;
+}
+
+.container input {
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+    margin-top: 20px;
+    box-shadow: 0 0 0 ; /* 흰색 동그라미 */
+    outline: none;
+    width: 500px;
+    text-align: left;
+}
+
+.btn{
+    background-color:cornflowerblue;
+    border-radius: 20px;
+    border: none;
+    margin-top: 50px;
+    width: 520px;
+    font-size: large;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.question{
+    display: flex;
+    color:white;
+    margin-top: 50px;
+    cursor: pointer;
+}

@@ -21,7 +21,7 @@ const Navbar = () => {
           style={{ color: "yellow" }}
           onClick={() => handleClick("회원가입")}
           className="menu"
-          to={"/login"}
+          to={"/signup"}
         >
           회원가입
         </Link>
