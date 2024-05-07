@@ -41,39 +41,39 @@ const Main = () => {
           </div>
           <div className="search">🔍</div>
         </div>
-        <div
-          className="movieList"
-          style={{ overflowY: "auto", maxHeight: "300px" }}
-        >
+        <div style={{ padding: 30 }} className="movieListContainer">
           {isSearching && <div>Loading...</div>}
-          {searchMovie.map((movie) => (
-            <div
-              key={movie.id}
-              onMouseEnter={() => setHoveredMovieId(movie.id)}
-              onMouseLeave={() => setHoveredMovieId(null)}
-              id="imagebox"
-            >
-              <img
-                src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
-                alt={movie.title}
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  transition: "opacity 0.3s ease",
-                  opacity: hoveredMovieId === movie.id ? 0.5 : 1,
-                }}
-              />
-              {hoveredMovieId === movie.id && (
-                <div id="hover">
-                  {movie.original_title}
-                  <br />
-                  <br />
-                  <br />
-                  {movie.overview}
+          <div className="movieList">
+            {searchMovie.map((movie) => (
+              <div
+                key={movie.id}
+                onMouseEnter={() => setHoveredMovieId(movie.id)}
+                onMouseLeave={() => setHoveredMovieId(null)}
+                className="movieItem"
+              >
+                <img
+                  src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                  alt={movie.title}
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    transition: "opacity 0.3s ease",
+                    opacity: hoveredMovieId === movie.id ? 0.5 : 1,
+                  }}
+                />
+                {hoveredMovieId === movie.id && (
+                  <div className="hoverInfo">
+                    <h3>{movie.original_title}</h3>
+                    <p>{movie.overview}</p>
+                  </div>
+                )}
+                <div className="title">
+                  <h4>{movie.title}</h4>
+                  <p>⭐️{movie.vote_average.toFixed(1)}</p>
                 </div>
-              )}
-            </div>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>
