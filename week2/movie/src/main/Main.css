@@ -19,7 +19,6 @@ body, h2, .find, .greeting {
     height: 50vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     background-color: #212247;
     color: white;
