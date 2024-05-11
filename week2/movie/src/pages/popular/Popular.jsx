@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Loading from "../loading/Loading";
+import Loading from "../../components/loading/Loading";
 import "./Popular.css";
 
 const Popular = () => {

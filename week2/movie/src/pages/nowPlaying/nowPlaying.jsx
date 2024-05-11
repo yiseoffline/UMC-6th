@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Loading from "../loading/Loading";
+import Loading from "../../components/loading/Loading";
 
 const NowPlaying = () => {
   const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
