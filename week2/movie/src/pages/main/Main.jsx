@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./Main.css";
+import useDebounce from "../../components/debounce/debounce";
 
 const Main = () => {
   const [searchWord, setSearchWord] = useState("");
   const [searchMovie, setSearchMovie] = useState([]);
   const [hoveredMovieId, setHoveredMovieId] = useState(null);
   const [isSearching, setIsSearching] = useState(false);
+
+  const debounceItem = useDebounce(searchWord, 1000);
 
   useEffect(() => {
     const fetchSearchMovie = async () => {
@@ -24,7 +27,7 @@ const Main = () => {
     };
 
     fetchSearchMovie();
-  }, [searchWord]);
+  }, [debounceItem]);
 
   return (
     <>
