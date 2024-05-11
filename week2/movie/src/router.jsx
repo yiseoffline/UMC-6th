@@ -11,6 +11,7 @@ import TopRated from "./pages/topRated/topRated";
 import UpComing from "./pages/upcoming/upComing";
 import NotFound from "./components/notFound/notFound";
 import Login from "./pages/login/Login";
+import Detail from "./pages/detail/Detail";
 
 const Router = () => {
   return (

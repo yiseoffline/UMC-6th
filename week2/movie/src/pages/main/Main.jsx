@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Main.css";
 import useDebounce from "../../components/debounce/debounce";
 
@@ -7,8 +8,7 @@ const Main = () => {
   const [searchMovie, setSearchMovie] = useState([]);
   const [hoveredMovieId, setHoveredMovieId] = useState(null);
   const [isSearching, setIsSearching] = useState(false);
-
-  const debounceItem = useDebounce(searchWord, 1000);
+  const debounceItem = useDebounce(searchWord, 700);
 
   useEffect(() => {
     const fetchSearchMovie = async () => {
@@ -54,26 +54,28 @@ const Main = () => {
                 onMouseLeave={() => setHoveredMovieId(null)}
                 className="movieItem"
               >
-                <img
-                  src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                  alt={movie.title}
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    transition: "opacity 0.3s ease",
-                    opacity: hoveredMovieId === movie.id ? 0.5 : 1,
-                  }}
-                />
-                {hoveredMovieId === movie.id && (
-                  <div className="hoverInfo">
-                    <h3>{movie.original_title}</h3>
-                    <p>{movie.overview}</p>
+                <Link to={`/movie/${movie.id}`} className="title">
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                    alt={movie.title}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      transition: "opacity 0.3s ease",
+                      opacity: hoveredMovieId === movie.id ? 0.5 : 1,
+                    }}
+                  />
+                  {hoveredMovieId === movie.id && (
+                    <div className="hoverInfo">
+                      <h3>{movie.original_title}</h3>
+                      <p>{movie.overview}</p>
+                    </div>
+                  )}
+                  <div className="title">
+                    <h4>{movie.title}</h4>
+                    <p>⭐️{movie.vote_average.toFixed(1)}</p>
                   </div>
-                )}
-                <div className="title">
-                  <h4>{movie.title}</h4>
-                  <p>⭐️{movie.vote_average.toFixed(1)}</p>
-                </div>
+                </Link>
               </div>
             ))}
           </div>
