@@ -11,11 +11,11 @@ const Movie = (searchWord) => {
   useEffect(() => {
     const fetchMovie = async () => {
       const response = await fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=931f0d63863a888a213f36475d977afb&include_adult=false&language=en-US&page=1&query=${searchWord}`
+        `https://api.themoviedb.org/3/movie/${movieId}?api_key=931f0d63863a888a213f36475d977afb&watch_region=KR&language=ko`
       );
 
       const data = await response.json();
-      setMovie(data.results);
+      setMovie(data);
     };
     fetchMovie();
   }, []);
@@ -24,7 +24,6 @@ const Movie = (searchWord) => {
     const starsCount = Math.floor(voteAverage);
     return "⭐️".repeat(starsCount);
   };
-
   return (
     <div className="movie">
       <img

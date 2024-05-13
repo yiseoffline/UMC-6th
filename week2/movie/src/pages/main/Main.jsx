@@ -27,7 +27,7 @@ const Main = () => {
     };
 
     fetchSearchMovie();
-  }, [debounceItem]);
+  }, [debounceItem, searchWord]);
 
   return (
     <>
