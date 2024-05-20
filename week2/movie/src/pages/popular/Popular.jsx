@@ -6,11 +6,13 @@ const Popular = () => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [hoveredMovieId, setHoveredMovieId] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    const fetchPopularMovies = async () => {
+    const fetchPopularMovies = async (page) => {
+      setLoading(true);
       const response = await fetch(
-        "https://api.themoviedb.org/3/movie/popular?api_key=931f0d63863a888a213f36475d977afb&language=en-US&page=1"
+        `https://api.themoviedb.org/3/movie/popular?api_key=931f0d63863a888a213f36475d977afb&language=en-US&page=${page}`
       );
 
       const data = await response.json();
@@ -18,8 +20,12 @@ const Popular = () => {
       setLoading(false);
     };
 
-    fetchPopularMovies();
-  }, []);
+    fetchPopularMovies(currentPage);
+  }, [currentPage]);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <div>
@@ -60,6 +66,23 @@ const Popular = () => {
               </div>
             </div>
           ))}
+      </div>
+      <div id="pagination">
+        {Array.from({ length: 5 }, (_, index) => index + 1).map(
+          (pageNumber) => (
+            <button
+              key={pageNumber}
+              onClick={() => handlePageChange(pageNumber)}
+              style={{
+                backgroundColor:
+                  currentPage === pageNumber ? "#007bff" : "#ffffff",
+                color: currentPage === pageNumber ? "#ffffff" : "#000000",
+              }}
+            >
+              {pageNumber}
+            </button>
+          )
+        )}
       </div>
     </div>
   );

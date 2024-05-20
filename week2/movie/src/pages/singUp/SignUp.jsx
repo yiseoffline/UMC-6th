@@ -4,6 +4,7 @@ import "./SignUp.css";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
+  const [id, setId] = useState("");
   const [age, setAge] = useState(0);
   const [isAgeValid, setIsAgeValid] = useState(false);
   const [password, setPassword] = useState("");
@@ -62,6 +63,8 @@ const SignUp = () => {
     console.log(infoArr);
     alert("회원가입에 성공하였습니다! ");
     navigate("/login");
+    localStorage.setItem("id", id);
+    localStorage.setItem("password", password);
   };
 
   return (
@@ -71,6 +74,13 @@ const SignUp = () => {
         style={{ marginTop: 50 }}
         type="text"
         placeholder="이름을 입력하세요"
+      />
+      <input
+        type="id"
+        onChange={(e) => {
+          setId(e.target.value);
+        }}
+        placeholder="아이디를 입력해주세요"
       />
       <input
         onChange={(e) => {

@@ -10,4 +10,5 @@ h2{
     border-radius: 20px;
     text-align: center;
     width: 500px;
+    cursor: pointer;
 }

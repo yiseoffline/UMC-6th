@@ -36,3 +36,16 @@
     width: 200px;
     position: relative;
 }
+
+#pagination {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#pagination button {
+    margin-right: 10px;
+    border: none;
+}
