@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./SignUp.css";
 
 const SignUp = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [id, setId] = useState("");
   const [age, setAge] = useState(0);
@@ -58,19 +60,37 @@ const SignUp = () => {
     }
   };
 
-  const handleSubmit = () => {
-    infoArr.push([email, age, password, pwCheck]);
-    console.log(infoArr);
-    alert("회원가입에 성공하였습니다! ");
-    navigate("/login");
-    localStorage.setItem("id", id);
-    localStorage.setItem("password", password);
+  const handleSubmit = async () => {
+    // infoArr.push([email, age, password, pwCheck]);
+    // console.log(infoArr);
+    await signUp();
+    // alert("회원가입에 성공하였습니다! ");
+    // navigate("/login");
+  };
+
+  const signUp = async () => {
+    try {
+      const response = await axios.post("http://localhost:8080/auth/signup", {
+        name: name,
+        email: email,
+        age: age,
+        username: id,
+        password: password,
+        passwordCheck: pwCheck,
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
     <div className="container">
       <h2>회원가입 페이지</h2>
       <input
+        onChange={(e) => {
+          setName(e.target.value);
+        }}
         style={{ marginTop: 50 }}
         type="text"
         placeholder="이름을 입력하세요"
