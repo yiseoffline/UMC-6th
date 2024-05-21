@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./Login.css";
 
 const Login = () => {
@@ -25,7 +26,20 @@ const Login = () => {
     }
   };
 
-  const handleLogin = () => {
+  const logIn = async () => {
+    try {
+      const response = await axios.post("http://localhost:8080/auth/login", {
+        username: id,
+        password: pw,
+      });
+      localStorage.setItem(response.data.token);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  const handleLogin = async () => {
+    await logIn();
     navigate("/");
   };
 
@@ -43,6 +57,7 @@ const Login = () => {
             setPw(e.target.value);
             passwordCheck(e.target.value);
           }}
+          type="password"
           placeholder="비밀번호"
         />
         {pwErrorMsg && <div className="message">{pwErrorMsg}</div>}

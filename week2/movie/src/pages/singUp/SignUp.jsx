@@ -61,11 +61,9 @@ const SignUp = () => {
   };
 
   const handleSubmit = async () => {
-    // infoArr.push([email, age, password, pwCheck]);
-    // console.log(infoArr);
     await signUp();
-    // alert("회원가입에 성공하였습니다! ");
-    // navigate("/login");
+    alert("회원가입에 성공하였습니다! ");
+    navigate("/login");
   };
 
   const signUp = async () => {
@@ -79,6 +77,9 @@ const SignUp = () => {
         passwordCheck: pwCheck,
       });
       console.log(response.data);
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("id", id);
+      localStorage.setItem("password", password);
     } catch (error) {
       console.error(error);
     }
