@@ -14,7 +14,6 @@ const SignUp = () => {
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [pwErrorMsg, setPwErrorMsg] = useState("");
   const [pwChkErrorMsg, setPwChkErrorMsg] = useState("");
-  const infoArr = [];
   const navigate = useNavigate();
 
   const emailExp =
@@ -78,8 +77,6 @@ const SignUp = () => {
       });
       console.log(response.data);
       localStorage.setItem("token", response.data.token);
-      localStorage.setItem("id", id);
-      localStorage.setItem("password", password);
     } catch (error) {
       console.error(error);
     }

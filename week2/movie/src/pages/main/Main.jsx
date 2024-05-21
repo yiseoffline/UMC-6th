@@ -31,7 +31,7 @@ const Main = () => {
 
   return (
     <>
-      <h2 className="greeting">환영합니다</h2>
+      <h2 className="greeting">{localStorage.getItem("id")} 환영합니다</h2>
       <div className="find">
         <h1>🎥 Find your movies !</h1>
         <div className="searchBox">

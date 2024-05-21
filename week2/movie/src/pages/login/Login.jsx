@@ -11,6 +11,7 @@ const Login = () => {
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
   const [pwErrorMsg, setPwErrorMsg] = useState("");
+  const [login, setLogin] = useState(false);
 
   const passwordCheck = (password) => {
     if (password.length < 4) {
@@ -28,11 +29,12 @@ const Login = () => {
 
   const logIn = async () => {
     try {
-      const response = await axios.post("http://localhost:8080/auth/login", {
+      await axios.post("http://localhost:8080/auth/login", {
         username: id,
         password: pw,
       });
-      localStorage.setItem(response.data.token);
+      console.log("logged in");
+      setLogin(true);
     } catch (error) {
       console.error(error.message);
     }
